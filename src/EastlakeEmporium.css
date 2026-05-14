@@ -1,0 +1,129 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.ee-page {
+  min-height: 100vh;
+  background: #0f0f0f;
+  font-family: Georgia, serif;
+  color: #fff;
+}
+
+.ee-header {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+.ee-brand {
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #e8d5a3;
+}
+
+.ee-tagline {
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  color: #888;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.ee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 4px;
+  padding: 0 4px 60px;
+}
+
+.ee-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+}
+
+.ee-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ee-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+
+.ee-overlay-text {
+  color: #e8d5a3;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.ee-card:hover .ee-img { transform: scale(1.05); }
+.ee-card:hover .ee-overlay { opacity: 1; }
+
+/* Lightbox */
+.ee-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.ee-lightbox-inner {
+  max-width: 85vw;
+  max-height: 85vh;
+  text-align: center;
+}
+
+.ee-lightbox-img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.ee-lightbox-label {
+  color: #e8d5a3;
+  margin-top: 12px;
+  letter-spacing: 0.15em;
+  font-size: 0.95rem;
+}
+
+.ee-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  width: 48px;
+  height: 64px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.ee-nav:hover { background: rgba(255,255,255,0.2); }
+.ee-nav-prev { left: 16px; }
+.ee-nav-next { right: 16px; }
+
+.ee-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
