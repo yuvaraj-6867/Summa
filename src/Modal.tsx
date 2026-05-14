@@ -49,7 +49,7 @@ export default function Modal({ onClose, onSubmit }: ModalProps) {
     if (Object.keys(e).length) { setErrors(e); return; }
     setStatus("loading");
     try {
-      const res = await fetch("http://localhost:4000/api/enquiry", {
+      const res = await fetch("https://summa-3m4t.onrender.com/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
