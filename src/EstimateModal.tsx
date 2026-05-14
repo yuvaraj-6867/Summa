@@ -87,7 +87,7 @@ export default function EstimateModal({ onClose, onSubmit }: Props) {
       await fetch("https://summa-3m4t.onrender.com/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName: name, lastName: "", email, phone, city, area, propertyType: "Apartment", bhk, service, budget, timeline }),
+        body: JSON.stringify({ firstName: name, lastName: "", email, phone, city, area, propertyType: "Apartment", bhk, service, budget, timeline, rooms, estimateMin: min, estimateMax: max }),
       });
     } catch {}
   };
