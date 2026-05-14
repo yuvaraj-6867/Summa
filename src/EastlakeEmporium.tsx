@@ -3,19 +3,23 @@ import "./eastlake.css";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Modal, { Toast } from "./Modal";
+import EstimateModal from "./EstimateModal";
 import { IMG, services, portfolio, processSteps, testimonials, aboutFeatures, TABS } from "./data";
 
 export default function EastlakeEmporium() {
   const [modal, setModal] = useState(false);
+  const [estimateModal, setEstimateModal] = useState(false);
   const [toast, setToast] = useState(false);
   const [activeTab, setActiveTab] = useState("All");
 
   const handleModalClose = (submitted = false) => {
     setModal(false);
-    if (submitted) {
-      setToast(true);
-      setTimeout(() => setToast(false), 4000);
-    }
+    if (submitted) { setToast(true); setTimeout(() => setToast(false), 4000); }
+  };
+
+  const handleEstimateClose = (submitted = false) => {
+    setEstimateModal(false);
+    if (submitted) { setToast(true); setTimeout(() => setToast(false), 4000); }
   };
 
   const filtered = activeTab === "All"
@@ -25,7 +29,7 @@ export default function EastlakeEmporium() {
   return (
     <>
       <Navbar onEnquire={() => setModal(true)} />
-      <Hero onQuote={() => setModal(true)} />
+      <Hero onQuote={() => setEstimateModal(true)} />
 
       {/* ABOUT */}
       <section className="about" id="about">
@@ -191,6 +195,7 @@ export default function EastlakeEmporium() {
       </footer>
 
       {modal && <Modal onClose={() => handleModalClose(false)} onSubmit={() => handleModalClose(true)} />}
+      {estimateModal && <EstimateModal onClose={() => handleEstimateClose(false)} onSubmit={() => handleEstimateClose(true)} />}
       {toast && <Toast message="Enquiry submitted successfully!" onHide={() => setToast(false)} />}
     </>
   );

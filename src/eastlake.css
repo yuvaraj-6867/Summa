@@ -15,8 +15,8 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
 /* NAV */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; transition: all 0.4s ease; }
 .nav.scrolled { background: rgba(28,23,16,0.96); backdrop-filter: blur(12px); padding: 14px 60px; box-shadow: 0 2px 40px rgba(0,0,0,0.3); }
-.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--white); letter-spacing: 2px; line-height: 1; }
-.nav-logo span { display: block; font-size: 10px; font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 6px; color: var(--gold-light); text-transform: uppercase; margin-top: 2px; }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--white); letter-spacing: 2px; line-height: 1; }
+.nav-logo span { display: block; font-size: 12px; font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 6px; color: var(--gold-light); text-transform: uppercase; margin-top: 2px; }
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; font-weight: 400; }
 .nav-links a:hover { color: var(--gold-light); }
