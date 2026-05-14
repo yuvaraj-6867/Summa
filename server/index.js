@@ -130,4 +130,12 @@ app.post('/api/enquiry', async (req, res) => {
   }
 });
 
-app.listen(4000, () => console.log('Server running on http://localhost:4000'));
+app.get('/ping', (req, res) => res.json({ ok: true }));
+
+app.listen(4000, () => {
+  console.log('Server running on http://localhost:4000');
+  // Keep Render free tier alive
+  setInterval(() => {
+    fetch('https://summa-3m4t.onrender.com/ping').catch(() => {});
+  }, 14 * 60 * 1000);
+});
