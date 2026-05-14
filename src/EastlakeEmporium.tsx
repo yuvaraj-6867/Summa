@@ -2,12 +2,21 @@ import { useState } from "react";
 import "./eastlake.css";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
-import Modal from "./Modal";
+import Modal, { Toast } from "./Modal";
 import { IMG, services, portfolio, processSteps, testimonials, aboutFeatures, TABS } from "./data";
 
 export default function EastlakeEmporium() {
   const [modal, setModal] = useState(false);
+  const [toast, setToast] = useState(false);
   const [activeTab, setActiveTab] = useState("All");
+
+  const handleModalClose = (submitted = false) => {
+    setModal(false);
+    if (submitted) {
+      setToast(true);
+      setTimeout(() => setToast(false), 4000);
+    }
+  };
 
   const filtered = activeTab === "All"
     ? portfolio
@@ -181,7 +190,8 @@ export default function EastlakeEmporium() {
         </div>
       </footer>
 
-      {modal && <Modal onClose={() => setModal(false)} />}
+      {modal && <Modal onClose={() => handleModalClose(false)} onSubmit={() => handleModalClose(true)} />}
+      {toast && <Toast message="Enquiry submitted successfully!" onHide={() => setToast(false)} />}
     </>
   );
 }
