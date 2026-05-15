@@ -13,7 +13,7 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
 /* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; transition: all 0.4s ease; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10000; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; transition: all 0.4s ease; }
 .nav.scrolled { background: rgba(28,23,16,0.96); backdrop-filter: blur(12px); padding: 14px 60px; box-shadow: 0 2px 40px rgba(0,0,0,0.3); }
 .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--white); letter-spacing: 2px; line-height: 1; }
 .nav-logo span { display: block; font-size: 12px; font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 6px; color: var(--gold-light); text-transform: uppercase; margin-top: 2px; }
@@ -180,7 +180,7 @@ footer { background: #0E0B07; padding: 60px 60px 32px; }
 .animate-in { animation: fadeUp 0.8s ease forwards; }
 
 /* ── HAMBURGER (always defined, hidden on desktop) ── */
-.nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 210; flex-shrink: 0; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 10000; flex-shrink: 0; }
 .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; transform-origin: center; }
 .nav-hamburger span.open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger span.open:nth-child(2) { opacity: 0; transform: scaleX(0); }
@@ -222,12 +222,15 @@ footer { background: #0E0B07; padding: 60px 60px 32px; }
     align-items: center;
     justify-content: center;
     gap: 28px;
-    background: rgba(28,23,16,0.97);
+    background: rgba(28,23,16,0.99);
     backdrop-filter: blur(16px);
-    z-index: 205;
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 9999;
     list-style: none;
     transition: opacity 0.25s ease, visibility 0.25s ease;
     display: flex;
+    margin: 0;
+    padding: 0;
   }
   .nav-links.open { visibility: visible; opacity: 1; pointer-events: auto; }
   .nav-links li { text-align: center; }
