@@ -14,7 +14,9 @@ export default function Navbar({ onEnquire }: NavbarProps) {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setTimeout(() => setMenuOpen(false), 100);
+  };
 
   return (
     <nav className={`nav ${scrolled ? "scrolled" : ""}`}>

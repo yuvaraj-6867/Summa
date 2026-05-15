@@ -213,7 +213,9 @@ footer { background: #0E0B07; padding: 60px 60px 32px; }
   .nav-cta-desktop { display: none; }
   .nav-hamburger { display: flex; }
   .nav-links {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
     position: fixed;
     inset: 0;
     flex-direction: column;
@@ -224,8 +226,10 @@ footer { background: #0E0B07; padding: 60px 60px 32px; }
     backdrop-filter: blur(16px);
     z-index: 205;
     list-style: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    display: flex;
   }
-  .nav-links.open { display: flex; }
+  .nav-links.open { visibility: visible; opacity: 1; pointer-events: auto; }
   .nav-links li { text-align: center; }
   .nav-links a { font-size: 20px; letter-spacing: 3px; color: rgba(255,255,255,0.85); }
   .nav-links-cta { display: block; margin-top: 8px; }
